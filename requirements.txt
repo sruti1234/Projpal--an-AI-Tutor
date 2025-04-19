@@ -10,3 +10,4 @@ gTTS                   # for text-to-speech audio
 pydub                  # for audio playback (server-side conversion)
 Werkzeug               # dependency for Flask
 Jinja2 
+xhtml2pdf
