@@ -1,0 +1,239 @@
+<!-- {% include 'navbar.html' %}
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+
+<style>
+  body {
+    background-color: #010c1f;
+    background: url('/static/ai-img-gpt.png') no-repeat center center fixed;
+    background-size: cover;
+    color: #00ffc3;
+    font-family: 'Arial', sans-serif;
+    padding-top: 70px;
+    margin: 0;
+  }
+
+  h1, h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px #00ffc3;
+  }
+
+  .features-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    padding: 20px;
+  }
+
+  .feature-card {
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid #00ffc3;
+    box-shadow: 0 0 15px #00ffc3;
+    border-radius: 20px;
+    padding: 25px;
+    width: 300px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    backdrop-filter: blur(6px);
+  }
+
+  .feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 25px #00ffc3;
+  }
+
+  .feature-card h3 {
+    margin-top: 0;
+    color: #00ffc3;
+    text-align: center;
+    font-size: 20px;
+    text-shadow: 0 0 5px #00ffc3;
+  }
+
+  .feature-card p {
+    color: #d1fff9;
+    font-size: 14px;
+    text-align: justify;
+  }
+</style>
+
+<body>
+  <h1>About ProjPal</h1>
+  <p style="text-align: center; margin: 0 10%; font-size: 16px;">
+    ProjPal is your AI-powered project simplification buddy. Just upload a PDF, pick a tone and audience, and get a crystal-clear summary with audio playback and visuals.
+  </p>
+
+  <h2>🌟 Features:</h2>
+  <div class="features-container">
+    <div class="feature-card">
+      <h3>📄 PDF Parsing</h3>
+      <p>Drop any project report and extract its sections easily for simplified editing and review.</p>
+    </div>
+
+    <div class="feature-card">
+      <h3>🧠 AI Rephrasing</h3>
+      <p>Choose from ELI5 to Professor tone with Cohere API magic to suit your audience better.</p>
+    </div>
+
+    <div class="feature-card">
+      <h3>🔊 Audio Playback</h3>
+      <p>Every section is playable with word-by-word highlight for interactive learning and review.</p>
+    </div>
+
+    <div class="feature-card">
+      <h3>🗺️ Mermaid Diagram</h3>
+      <p>Mermaid.js generates flowcharts directly from your content to visually represent logic and structure.</p>
+    </div>
+
+    <div class="feature-card">
+      <h3>📜 User History</h3>
+      <p>See past uploads and saved insights in your dashboard, so you never lose track of your work.</p>
+    </div>
+  </div>
+</body> -->
+
+{% include 'navbar.html' %}
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+
+<style>
+  body {
+    background: url('/static/ai-img-gpt.png') no-repeat center center fixed;
+    background-size: cover;
+    background-color: #010c1f;
+    color: #00ffc3;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding-top: 70px;
+  }
+
+  .content-wrapper {
+    background: rgba(0, 0, 0, 0.85);
+    padding: 40px 30px;
+    margin: 40px auto;
+    max-width: 1200px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 255, 195, 0.3);
+    backdrop-filter: blur(5px);
+  }
+
+  h1, h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px #00ffc3;
+    color: #00ffc3;
+  }
+
+  p {
+    text-align: center;
+    margin: 0 10% 30px;
+    font-size: 16px;
+    color: #d1fff9;
+  }
+
+  .features-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+  }
+
+  .feature-card {
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid #00ffc3;
+    box-shadow: 0 0 15px #00ffc3;
+    border-radius: 20px;
+    padding: 25px;
+    width: 280px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    backdrop-filter: blur(6px);
+  }
+
+  .feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 25px #00ffc3;
+  }
+
+  .feature-card h3 {
+    margin-top: 0;
+    color: #00ffc3;
+    text-align: center;
+    font-size: 20px;
+    text-shadow: 0 0 5px #00ffc3;
+  }
+
+  .feature-card p {
+    color: #d1fff9;
+    font-size: 14px;
+    text-align: justify;
+  }
+  .emoji-trail {
+    position: fixed;
+    pointer-events: none;
+    font-size: 24px;
+    animation: floatUp 1s ease-out forwards;
+    z-index: 9999;
+  }
+
+  @keyframes floatUp {
+    to {
+      transform: translateY(-60px) scale(0.5) rotate(20deg);
+      opacity: 0;
+    }
+  }
+</style>
+
+<body>
+  <div class="content-wrapper">
+    <h1>About ProjPal</h1>
+    <p>
+      ProjPal is your AI-powered project simplification buddy. Just upload a PDF, pick a tone and audience, and get a crystal-clear summary with audio playback and visuals.
+    </p>
+
+    <h2>🌟 Features:</h2>
+    <div class="features-container">
+      <div class="feature-card">
+        <h3>📄 PDF Parsing</h3>
+        <p>Drop any project report and extract its sections easily for simplified editing and review.</p>
+      </div>
+
+      <div class="feature-card">
+        <h3>🧠 AI Rephrasing</h3>
+        <p>Choose from ELI5 to Professor tone with Cohere API magic to suit your audience better.</p>
+      </div>
+
+      <div class="feature-card">
+        <h3>🔊 Audio Playback</h3>
+        <p>Every section is playable with word-by-word highlight for interactive learning and review.</p>
+      </div>
+
+      <div class="feature-card">
+        <h3>🗺️ Mermaid Diagram</h3>
+        <p>Mermaid.js generates flowcharts directly from your content to visually represent logic and structure.</p>
+      </div>
+
+      <div class="feature-card">
+        <h3>📜 User History</h3>
+        <p>See past uploads and saved insights in your dashboard, so you never lose track of your work.</p>
+      </div>
+    </div>
+  </div>
+  <script>
+    const emojis = ['😃']; // You can customize this list
+
+document.addEventListener('mousemove', (e) => {
+  const emoji = document.createElement('div');
+  emoji.className = 'emoji-trail';
+  emoji.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+  document.body.appendChild(emoji);
+
+  // Set initial position
+  emoji.style.left = `${e.pageX}px`;
+  emoji.style.top = `${e.pageY}px`;
+
+  // Remove after animation
+  setTimeout(() => {
+    emoji.remove();
+  }, 1000);
+});
+  </script>
+</body>

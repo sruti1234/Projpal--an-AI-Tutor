@@ -1,0 +1,103 @@
+{% include 'navbar.html' %}
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+<style>
+  .emoji-trail {
+    position: fixed;
+    pointer-events: none;
+    font-size: 24px;
+    animation: floatUp 1s ease-out forwards;
+    z-index: 9999;
+  }
+
+  @keyframes floatUp {
+    to {
+      transform: translateY(-60px) scale(0.5) rotate(20deg);
+      opacity: 0;
+    }
+  }
+</style>
+
+<body style="margin: 0; font-family: 'Arial', sans-serif; background: url('/static/ai-img-gpt.png'); background-color: #010c1f; color: #00ffc3; padding-top: 60px;">
+
+  <div style="display: flex; height: 100vh;">
+
+    <!-- Sidebar -->
+    <div style="width: 250px; background-color: #0b0b0b; padding: 30px 20px; box-shadow: 2px 0 10px #00ffc3;">
+      <div style="text-align: center; margin-bottom: 40px;">
+        <div style="background-color: #00ffc3; color: #010c1f; font-size: 60px; width: 100px; height: 100px; border-radius: 50%; display: flex; justify-content: center; align-items: center; margin: 0 auto;">
+          {{ user.username[0]|upper }}
+        </div>
+        <p style="margin-top: 10px; font-size: 20px;">{{ user.username }}</p>
+      </div>
+
+      <nav style="display: flex; flex-direction: column; gap: 20px; font-size: 18px;">
+        <a href="#" style="color: #00ffc3; text-decoration: none;">Home</a>
+        <a href="#" style="color: #00ffc3; text-decoration: none;">Work</a>
+        <a href="#" style="color: #00ffc3; text-decoration: none;">Support</a>
+        <a href="#" style="color: #00ffc3; text-decoration: none;">Settings</a>
+        <a href="#" style="color: #00ffc3; text-decoration: none;">Signout</a>
+      </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div style="flex-grow: 1; padding: 40px;">
+      <div style="background-color: rgba(0, 0, 0, 0.6); padding: 30px; border-radius: 15px; box-shadow: 0 0 15px #00ffc3;">
+
+        <!-- About Section -->
+        <div style="margin-bottom: 40px;">
+          <h2 style="font-size: 28px; border-bottom: 2px solid #00ffc3; padding-bottom: 10px; margin-bottom: 20px;">About</h2>
+          <div style="display: grid; grid-template-columns: 200px 1fr; gap: 10px; margin-bottom: 10px;">
+            <div>Full Name</div><div>{{ user.username }}</div>
+            <div>Email</div><div>{{ user.email }}</div>
+            <div>Phone</div><div>{{ user.contact }}</div>
+            <div>Age</div><div>{{ user.age }}</div>
+            <div>Gender</div><div>{{ user.gender }}</div>
+          </div>
+        </div>
+
+        <!-- Recent Projects Placeholder -->
+        <div>
+          <h2 style="font-size: 28px; border-bottom: 2px solid #00ffc3; padding-bottom: 10px; margin-bottom: 20px;">Recent Projects</h2>
+          <table style="width: 100%; border-collapse: collapse; color: #00ffc3;">
+            <thead>
+              <tr style="text-align: left;">
+                <th style="padding: 10px; border-bottom: 1px solid #00ffc3;">Project Name</th>
+                <th style="padding: 10px; border-bottom: 1px solid #00ffc3;">Project Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="padding: 10px;">ProjPal</td>
+                <td style="padding: 10px;">AI-powered PDF & voice learning generator</td>
+              </tr>
+              <tr>
+                <td style="padding: 10px;">ai-tutor</td>
+                <td style="padding: 10px;">Voice narration + animation learning system</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    const emojis = ['😃']; // You can customize this list
+
+document.addEventListener('mousemove', (e) => {
+ const emoji = document.createElement('div');
+ emoji.className = 'emoji-trail';
+ emoji.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+ document.body.appendChild(emoji);
+
+ // Set initial position
+ emoji.style.left = `${e.pageX}px`;
+ emoji.style.top = `${e.pageY}px`;
+
+ // Remove after animation
+ setTimeout(() => {
+   emoji.remove();
+ }, 1000);
+});
+</script>
+</body>

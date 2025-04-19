@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AI-Tutor | Welcome</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      background: linear-gradient(180deg, #0f0f0f, #1a1a2e);
+      color: #ffffff;
+      font-family: 'Orbitron', sans-serif;
+      overflow: hidden;
+    }
+
+    .hero-container {
+      height: 100vh;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    h1.glow-text {
+      font-size: 3.5rem;
+      color: #00ffe0;
+      text-shadow: 0 0 10px #00ffe0, 0 0 20px #00ffe0;
+      animation: fadeIn 2s ease-out forwards;
+    }
+
+    .typing-text {
+      font-size: 1.5rem;
+      color: #aaa;
+      border-right: 2px solid #00ffe0;
+      white-space: nowrap;
+      overflow: hidden;
+      width: 0;
+      animation: typing 4s steps(40, end) forwards, blink 0.7s step-end infinite;
+      margin-top: 1rem;
+    }
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .enter-btn,
+    .auth-btn {
+      margin-top: 2rem;
+      padding: 12px 30px;
+      font-size: 1.2rem;
+      color: white;
+      background: #00ffe0;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 0 20px #00ffe0;
+      transition: all 0.3s ease;
+    }
+
+    .auth-btn {
+      margin: 1rem 1rem;
+      background: transparent;
+      border: 2px solid #00ffe0;
+      color: #00ffe0;
+    }
+
+    .auth-btn:hover {
+      background: #00ffe0;
+      color: #0f0f0f;
+      box-shadow: 0 0 30px #00ffe0;
+    }
+
+    .button-group {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .floating-icon {
+      position: absolute;
+      font-size: 2rem;
+      opacity: 0.1;
+      animation: floatIcon 6s infinite ease-in-out alternate;
+    }
+
+    .icon-1 { top: 10%; left: 10%; animation-delay: 0s; }
+    .icon-2 { top: 30%; right: 15%; animation-delay: 1s; }
+    .icon-3 { bottom: 20%; left: 20%; animation-delay: 2s; }
+
+    @keyframes floatIcon {
+      from { transform: translateY(0px) rotate(0deg); }
+      to { transform: translateY(-20px) rotate(360deg); }
+    }
+  .emoji-trail {
+    position: fixed;
+    pointer-events: none;
+    font-size: 24px;
+    animation: floatUp 1s ease-out forwards;
+    z-index: 9999;
+  }
+
+  @keyframes floatUp {
+    to {
+      transform: translateY(-60px) scale(0.5) rotate(20deg);
+      opacity: 0;
+    }
+  }
+</style>
+
+  </style>
+</head>
+<body>
+
+  <div class="hero-container">
+    <h1 class="glow-text">Welcome to AI-Tutor</h1>
+    <div class="typing-text">Your Personalized AI-Powered Learning Partner</div>
+
+    <button class="enter-btn" onclick="window.location.href='/dashboard'">Get Started</button>
+
+    <!-- Login/Register Buttons – Now Always Visible -->
+    <div class="button-group">
+      <button class="auth-btn" onclick="window.location.href='/login'">🔐 Login</button>
+      <button class="auth-btn" onclick="window.location.href='/register'">📝 Register</button>
+    </div>
+
+
+    <div class="floating-icon icon-1">🤖</div>
+    <div class="floating-icon icon-2">📚</div>
+    <div class="floating-icon icon-3">🌐</div>
+  </div>
+
+  <script>
+    const emojis = ['😃']; // You can customize this list
+
+document.addEventListener('mousemove', (e) => {
+  const emoji = document.createElement('div');
+  emoji.className = 'emoji-trail';
+  emoji.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+  document.body.appendChild(emoji);
+
+  // Set initial position
+  emoji.style.left = `${e.pageX}px`;
+  emoji.style.top = `${e.pageY}px`;
+
+  // Remove after animation
+  setTimeout(() => {
+    emoji.remove();
+  }, 1000);
+});
+    // Animations using GSAP
+    gsap.from(".hero-container h1", { y: -50, opacity: 0, duration: 1 });
+gsap.from(".typing-text", { y: 30, opacity: 0, delay: 1, duration: 1 });
+gsap.from(".enter-btn", { scale: 0, delay: 2, duration: 1.2, ease: "elastic" });
+gsap.from(".auth-btn", {
+  opacity: 1,
+  scale: 0.8,
+  y: 20,
+  stagger: 0.3,
+  delay: 2.7,
+  duration: 1
+});
+
+
+    function scrollToAuth() {
+      document.getElementById('auth-buttons').scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
+
+</body>
+</html>

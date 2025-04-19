@@ -1,0 +1,86 @@
+<nav class="navbar ai-navbar">
+  <ul>
+    <li>
+      <a href="{{ url_for('index') }}">
+        <img src='/static/navbar-gpt.png' style="height:100px; width: 150px; margin-right:5px;">
+      </a>
+    </li>
+    <li><a href="{{ url_for('index') }}">Home</a></li>
+    <li><a href="{{ url_for('ai_facts') }}">AI Facts</a></li>
+    <li><a href="{{ url_for('about') }}">About</a></li>
+    <li><a href="{{ url_for('profile') }}">Profile</a></li>
+    <li><a href="{{ url_for('logout') }}">Logout</a></li>
+  </ul>
+</nav>
+
+<style>
+/* Optional: futuristic font (you can load this via Google Fonts) */
+/* @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap'); */
+
+.ai-navbar {
+  width: 100%;
+  padding: 18px 0;
+  background: linear-gradient(90deg, #0d0d1d 0%, #10101f 100%);
+  backdrop-filter: blur(4px);
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+  border-bottom: 1px solid rgba(0, 255, 255, 0.3);
+  display: flex;
+  justify-content: center;
+  animation: fadeInNav 1.2s ease-in-out;
+  z-index: 999;
+  position: sticky;
+  top: 0;
+  font-family: 'Orbitron', sans-serif; /* Optional */
+}
+
+.ai-navbar ul {
+  display: flex;
+  list-style: none;
+  gap: 50px;
+  padding: 0;
+  margin: 0;
+}
+
+.ai-navbar a {
+  color: #00ffff;
+  text-decoration: none;
+  font-size: 18px;
+  letter-spacing: 1px;
+  position: relative;
+  transition: 0.3s ease-in-out;
+  text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff;
+}
+
+.ai-navbar a::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background-color: #00ffff;
+  box-shadow: 0 0 10px #00ffff;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.ai-navbar a:hover {
+  color: #ffffff;
+  text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+}
+
+.ai-navbar a:hover::after {
+  width: 100%;
+}
+
+@keyframes fadeInNav {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+</style>

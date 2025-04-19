@@ -1,0 +1,104 @@
+/* style.css */
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: #101010;
+    color: #fff;
+    margin: 0;
+    padding: 20px;
+    background-image: url('/static/ai-img-gpt.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    animation: fadeIn 2s ease-in-out;
+}
+
+h2 {
+    text-align: center;
+    font-size: 40px;
+    color: #00ff99;
+    animation: glow 1.5s infinite alternate;
+    margin-bottom: 30px;
+}
+
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 5px #00ff99, 0 0 10px #00ff99, 0 0 15px #00ff99;
+    }
+    100% {
+        text-shadow: 0 0 10px #00ff99, 0 0 20px #00ff99, 0 0 30px #00ff99;
+    }
+}
+
+.form-container {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.5);
+    max-width: 450px;
+    margin: auto;
+    animation: slideIn 1s ease-out;
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateY(-20%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+label {
+    color: #fff;
+    margin-bottom: 5px;
+}
+
+input[type="email"], input[type="password"], input[type="file"] {
+    background: #222;
+    color: #fff;
+    border: 1px solid #444;
+    border-radius: 8px;
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+input::placeholder {
+    color: #aaa;
+}
+
+.btn-custom {
+    background-color: #00ff99;
+    border: none;
+    padding: 12px;
+    width: 100%;
+    color: #101010;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: 0.3s ease;
+}
+
+.btn-custom:hover {
+    background-color: #00cc7a;
+}
+
+.text-center a {
+    color: #00ff99;
+    text-decoration: none;
+}
+
+.text-center a:hover {
+    text-decoration: underline;
+}
+
+.alert {
+    background-color: #ffc107;
+    color: #000;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 20px;
+}
