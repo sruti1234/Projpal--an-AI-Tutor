@@ -159,6 +159,14 @@ def register():
         gender = request.form['gender']
         contact = request.form['contact']
 
+        if User.query.filter_by(email=email).first():
+            flash("⚠️ Email already registered. Please login or use another email.", "danger")
+            return redirect(url_for('register'))
+
+        if User.query.filter_by(contact=contact).first():
+            flash("⚠️ Contact number already registered. Please use a different one.", "danger")
+            return redirect(url_for('register'))
+
         user = User(
             username=username,
             email=email,
